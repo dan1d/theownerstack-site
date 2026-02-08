@@ -1,0 +1,122 @@
+---
+const links = [
+  { label: 'Products', href: '#products' },
+  { label: 'Open Source', href: '#opensource' },
+  { label: 'Contributions', href: '#contributions' },
+  { label: 'About', href: '#about' },
+];
+---
+
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 h-16 lg:h-18 transition-all duration-300">
+  <div class="max-w-[1200px] mx-auto px-5 md:px-8 h-full flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 text-white font-bold text-xl tracking-tight">
+      <svg class="w-7 h-7 text-accent-500" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="28" height="28" rx="6" fill="currentColor"/>
+        <path d="M7 14h14M14 7v14M9 9l10 10M19 9L9 19" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>TheOwnerStack</span>
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <a href={link.href} class="text-sm font-medium text-primary-400 hover:text-white transition-colors duration-200">
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#cta"
+        class="inline-flex items-center px-5 py-2 rounded-lg bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 shadow-[var(--shadow-cta)] hover:shadow-[var(--shadow-cta-hover)]"
+      >
+        Get Started
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col gap-1.5 p-2 text-white"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-current transition-transform duration-200" id="bar1"></span>
+      <span class="block w-6 h-0.5 bg-current transition-opacity duration-200" id="bar2"></span>
+      <span class="block w-6 h-0.5 bg-current transition-transform duration-200" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 top-16 bg-primary-900/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+  >
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class="mobile-link text-2xl font-semibold text-white/80 hover:text-white transition-colors"
+      >
+        {link.label}
+      </a>
+    ))}
+    <a
+      href="#cta"
+      class="mobile-link mt-4 inline-flex items-center px-8 py-4 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-semibold text-base transition-all duration-200"
+    >
+      Get Started
+    </a>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar')!;
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const bar1 = document.getElementById('bar1')!;
+  const bar2 = document.getElementById('bar2')!;
+  const bar3 = document.getElementById('bar3')!;
+  let open = false;
+
+  // Scroll behavior — solid bg after 80px
+  const updateNav = () => {
+    if (window.scrollY > 80) {
+      navbar.classList.add('bg-primary-900/95', 'backdrop-blur-xl', 'border-b', 'border-white/8', 'shadow-[var(--shadow-nav)]');
+    } else {
+      navbar.classList.remove('bg-primary-900/95', 'backdrop-blur-xl', 'border-b', 'border-white/8', 'shadow-[var(--shadow-nav)]');
+    }
+  };
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // Mobile menu toggle
+  toggle.addEventListener('click', () => {
+    open = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    if (open) {
+      menu.classList.remove('opacity-0', 'pointer-events-none');
+      menu.classList.add('opacity-100', 'pointer-events-auto');
+      bar1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+      bar2.style.opacity = '0';
+      bar3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+    } else {
+      menu.classList.add('opacity-0', 'pointer-events-none');
+      menu.classList.remove('opacity-100', 'pointer-events-auto');
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+    }
+  });
+
+  // Close on link click
+  menu.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      open = false;
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.add('opacity-0', 'pointer-events-none');
+      menu.classList.remove('opacity-100', 'pointer-events-auto');
+      bar1.style.transform = '';
+      bar2.style.opacity = '';
+      bar3.style.transform = '';
+    });
+  });
+</script>

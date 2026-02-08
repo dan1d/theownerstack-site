@@ -1,0 +1,102 @@
+---
+interface Props {
+  name: string;
+  tagline: string;
+  description: string;
+  badge: string;
+  badgeColor: 'success' | 'ruby';
+  features: string[];
+  ctaText: string;
+  ctaHref: string;
+  external?: boolean;
+  stats?: string;
+  icon: 'sync' | 'shield';
+}
+
+const { name, tagline, description, badge, badgeColor, features, ctaText, ctaHref, external = false, stats, icon } = Astro.props;
+
+const colorMap = {
+  success: {
+    iconBg: 'bg-success-50',
+    iconColor: 'text-success-600',
+    badgeBg: 'bg-success-50',
+    badgeText: 'text-success-600',
+    checkColor: 'text-success-500',
+    hoverBorder: 'hover:border-success-300',
+  },
+  ruby: {
+    iconBg: 'bg-ruby-50',
+    iconColor: 'text-ruby-500',
+    badgeBg: 'bg-ruby-50',
+    badgeText: 'text-ruby-600',
+    checkColor: 'text-ruby-500',
+    hoverBorder: 'hover:border-ruby-500',
+  },
+};
+
+const colors = colorMap[badgeColor];
+---
+
+<div
+  class:list={[
+    'group bg-neutral-50 border border-neutral-200 rounded-2xl p-6 lg:p-10',
+    'shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)]',
+    'transition-all duration-300 hover:-translate-y-0.5',
+    colors.hoverBorder,
+  ]}
+  data-reveal
+>
+  <!-- Icon -->
+  <div class:list={['w-12 h-12 rounded-xl flex items-center justify-center', colors.iconBg]}>
+    {icon === 'sync' ? (
+      <svg class:list={['w-6 h-6', colors.iconColor]} fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+      </svg>
+    ) : (
+      <svg class:list={['w-6 h-6', colors.iconColor]} fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+      </svg>
+    )}
+  </div>
+
+  <!-- Badge -->
+  <span class:list={['inline-flex mt-4 px-2.5 py-1 rounded-md text-xs font-semibold uppercase tracking-wide', colors.badgeBg, colors.badgeText]}>
+    {badge}
+  </span>
+
+  <!-- Name & Description -->
+  <h3 class="text-2xl font-bold text-neutral-950 mt-4">{name}</h3>
+  <p class="text-sm text-neutral-500 font-medium mt-1">{tagline}</p>
+  <p class="text-base text-neutral-600 leading-relaxed mt-3">{description}</p>
+
+  <!-- Features -->
+  <ul class="mt-6 space-y-3">
+    {features.map((feature) => (
+      <li class="flex items-start gap-3 text-sm text-neutral-700">
+        <svg class:list={['w-5 h-5 flex-shrink-0 mt-0.5', colors.checkColor]} fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+        </svg>
+        {feature}
+      </li>
+    ))}
+  </ul>
+
+  <!-- Stats -->
+  {stats && (
+    <p class="mt-5 text-xs font-medium text-neutral-500">{stats}</p>
+  )}
+
+  <!-- CTA -->
+  <a
+    href={ctaHref}
+    target={external ? '_blank' : undefined}
+    rel={external ? 'noopener noreferrer' : undefined}
+    class="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-primary-700 hover:text-accent-600 transition-colors group/link"
+    aria-label={external ? `${ctaText} (opens in new tab)` : undefined}
+  >
+    {ctaText}
+    <svg class="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+    </svg>
+  </a>
+</div>

@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import OSSCard from '../components/OSSCard.astro';
+import ContributionCard from '../components/ContributionCard.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <main id="main">
+    <Hero />
+
+    <!-- ═══════════════════════════════════ Products ═══════════════════════════════════ -->
+    <section id="products" class="bg-white py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-5 md:px-8">
+        <!-- Section Header -->
+        <div class="text-center" data-reveal>
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">What We Build</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">Products</h2>
+          <p class="text-lg text-neutral-600 mt-4 max-w-[520px] mx-auto">
+            Focused tools that solve real problems for business owners and the Ruby ecosystem.
+          </p>
+        </div>
+
+        <!-- Product Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+          <ProductCard
+            name="Sync Commerce"
+            tagline="Clover POS to QuickBooks Online"
+            description="Automatically sync daily sales from Clover POS to QuickBooks Online. Set it up once, and your books stay current every day. Built for restaurants, cafes, bars, and retail."
+            badge="For Business Owners"
+            badgeColor="success"
+            icon="sync"
+            features={[
+              'Automated daily sales sync — no manual data entry',
+              'AI-powered category and tender mapping',
+              'Multi-location support for growing businesses',
+              'Accountant collaboration portal — invite your bookkeeper',
+            ]}
+            ctaText="Start syncing free"
+            ctaHref="#cta"
+          />
+
+          <ProductCard
+            name="VulnSentry"
+            tagline="Automated security for the Ruby ecosystem"
+            description="Monitors Ruby and Rails for gem vulnerabilities, uses LLM-assisted decision making, and creates human-gated security PRs to upstream repositories."
+            badge="For the Ruby Ecosystem"
+            badgeColor="ruby"
+            icon="shield"
+            features={[
+              'Multi-source vulnerability data (GHSA + OSV + ruby-lang)',
+              'LLM-assisted version resolution with fail-closed safety',
+              'Human-gated PR creation — automation with oversight',
+              'Continuous PR synchronization and audit trail',
+            ]}
+            stats="42 vulnerabilities tracked · 10 branches monitored · 20 LLM-assisted decisions"
+            ctaText="Visit vulnsentry.com"
+            ctaHref="https://vulnsentry.com"
+            external
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ Open Source ═══════════════════════════════════ -->
+    <section id="opensource" class="bg-neutral-100 py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-5 md:px-8">
+        <!-- Section Header -->
+        <div class="text-center" data-reveal>
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">Open Source</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">Built in the open</h2>
+          <p class="text-lg text-neutral-600 mt-4 max-w-[520px] mx-auto">
+            Ruby gems we created and maintain for the community.
+          </p>
+        </div>
+
+        <!-- OSS Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <OSSCard
+            name="linear_api"
+            description="Ruby client for the Linear GraphQL API. Issue management, labels, workflow states, and batch operations with a Rails engine."
+            installCmd="linear_api"
+            githubUrl="https://github.com/dan1d/linear-ruby"
+          />
+
+          <OSSCard
+            name="clover_sandbox_simulator"
+            description="Generate realistic POS data for Clover sandbox testing. 9 business types, 168 menu items, multiple payment methods."
+            installCmd="clover_sandbox_simulator"
+            githubUrl="https://github.com/dan1d/clover_sandbox_simulator"
+          />
+
+          <OSSCard
+            name="omniauth-clover-oauth2"
+            description="OmniAuth strategy for Clover POS OAuth2. Supports sandbox and production environments with automatic token refresh."
+            installCmd="omniauth-clover-oauth2"
+            githubUrl="https://github.com/dan1d/omniauth-clover-oauth2"
+          />
+
+          <OSSCard
+            name="omniauth-quickbooks-oauth2-modern"
+            description="Modern OmniAuth 2.0+ strategy for QuickBooks Online. Full scope support with token lifecycle management."
+            installCmd="omniauth-quickbooks-oauth2-modern"
+            githubUrl="https://github.com/dan1d/omniauth-quickbooks-oauth2-modern"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ Contributions ═══════════════════════════════════ -->
+    <section id="contributions" class="bg-white py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-5 md:px-8">
+        <!-- Section Header -->
+        <div class="text-center" data-reveal>
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">Contributing Upstream</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">We improve the tools we use</h2>
+          <p class="text-lg text-neutral-600 mt-4 max-w-[560px] mx-auto">
+            Active contributions to Ruby on Rails core. We don't just build on the framework — we make it better.
+          </p>
+        </div>
+
+        <!-- Contribution Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+          <ContributionCard
+            prNumber={56614}
+            title="Raise UnknownPrimaryKey for writes without primary key"
+            description="Models without a primary key combined with destroy generate invalid SQL. This fix makes them fail earlier with a clear ActiveRecord error instead of cryptic adapter errors."
+            repo="rails/rails"
+            url="https://github.com/rails/rails/pull/56614"
+            status="open"
+          />
+
+          <ContributionCard
+            prNumber={56616}
+            title="Raise UnknownPrimaryKey for destroy_async without PK"
+            description="dependent: :destroy_async with a no-PK model fails with a cryptic TypeError. This adds an early guard raising UnknownPrimaryKey with actionable guidance."
+            repo="rails/rails"
+            url="https://github.com/rails/rails/pull/56616"
+            status="open"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ About ═══════════════════════════════════ -->
+    <section id="about" class="bg-neutral-50 py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-5 md:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Text -->
+          <div data-reveal>
+            <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">About Us</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">
+              Built by operators, for operators
+            </h2>
+            <div class="mt-6 space-y-4 text-base text-neutral-600 leading-relaxed">
+              <p>
+                The Owner Stack, LLC is a Delaware limited liability company founded in 2025.
+                We build automation tools for small business owners and open-source
+                infrastructure for the Ruby ecosystem.
+              </p>
+              <p>
+                We believe the best tools come from people who understand the problem firsthand.
+                Every product we ship solves a pain we've experienced — from the tedium of
+                re-entering POS data into accounting software to the challenge of keeping
+                open-source dependencies secure.
+              </p>
+              <p>
+                We build in the open, contribute upstream, and use what we ship.
+                Our business model is simple: charge for the tools that save you time,
+                open-source everything else.
+              </p>
+            </div>
+          </div>
+
+          <!-- Visual — tech stack showcase -->
+          <div class="relative" data-reveal>
+            <div class="bg-gradient-to-br from-primary-800 to-primary-950 rounded-2xl p-8 lg:p-10 aspect-[4/3] flex flex-col justify-center">
+              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-primary-400 mb-6">Our Stack</p>
+              <div class="grid grid-cols-2 gap-4">
+                {[
+                  { label: 'Ruby 3.4', sub: 'Language' },
+                  { label: 'Rails 8.1', sub: 'Framework' },
+                  { label: 'PostgreSQL', sub: 'Database' },
+                  { label: 'Hotwire', sub: 'Frontend' },
+                  { label: 'DeepSeek', sub: 'AI/LLM' },
+                  { label: 'Kamal', sub: 'Deployment' },
+                ].map((item) => (
+                  <div class="bg-white/[0.06] border border-white/[0.08] rounded-lg px-4 py-3">
+                    <p class="text-sm font-semibold text-white">{item.label}</p>
+                    <p class="text-xs text-primary-400 mt-0.5">{item.sub}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

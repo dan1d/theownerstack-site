@@ -1,0 +1,92 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'TheOwnerStack | Commerce Automation & Ruby Ecosystem Tools',
+  description = 'TheOwnerStack builds automation tools for small businesses and open-source infrastructure for the Ruby ecosystem. Sync Commerce, VulnSentry, and community gems.',
+} = Astro.props;
+
+const siteUrl = 'https://theownerstack.com';
+---
+
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="clover quickbooks sync, pos accounting integration, ruby rails tools, open source, vuln sentry, commerce automation" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="TheOwnerStack" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "The Owner Stack, LLC",
+      "legalName": "The Owner Stack, LLC",
+      "url": siteUrl,
+      "description": description,
+      "foundingDate": "2025-06-01",
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "DE",
+          "addressCountry": "US"
+        }
+      },
+      "sameAs": [
+        "https://github.com/dan1d"
+      ],
+      "knowsAbout": [
+        "Ruby on Rails",
+        "Point of Sale Integration",
+        "QuickBooks Online",
+        "Open Source Software",
+        "Vulnerability Detection"
+      ]
+    })} />
+  </head>
+  <body class="bg-white text-neutral-950">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent-500 focus:text-white focus:rounded-lg focus:outline-none">
+      Skip to main content
+    </a>
+
+    <slot />
+
+    <!-- Scroll reveal observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add('revealed');
+        }),
+        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
