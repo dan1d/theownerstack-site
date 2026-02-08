@@ -2,9 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import ProductCard from '../components/ProductCard.astro';
-import OSSCard from '../components/OSSCard.astro';
-import ContributionCard from '../components/ContributionCard.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -14,190 +11,262 @@ import Footer from '../components/Footer.astro';
   <main id="main">
     <Hero />
 
-    <!-- ═══════════════════════════════════ Products ═══════════════════════════════════ -->
-    <section id="products" class="bg-white py-16 md:py-24">
+    <!-- ═══════════════════════════════════ How It Works ═══════════════════════════════════ -->
+    <section id="how-it-works" class="bg-white py-16 md:py-24">
       <div class="max-w-[1200px] mx-auto px-5 md:px-8">
-        <!-- Section Header -->
         <div class="text-center" data-reveal>
-          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">What We Build</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">Products</h2>
-          <p class="text-lg text-neutral-600 mt-4 max-w-[520px] mx-auto">
-            Focused tools that solve real problems for business owners and the Ruby ecosystem.
-          </p>
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">How It Works</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">From zero to automated in 5 minutes</h2>
         </div>
 
-        <!-- Product Cards -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
-          <ProductCard
-            name="Sync Commerce"
-            tagline="Clover POS to QuickBooks Online"
-            description="Automatically sync daily sales from Clover POS to QuickBooks Online. Set it up once, and your books stay current every day. Built for restaurants, cafes, bars, and retail."
-            badge="For Business Owners"
-            badgeColor="success"
-            icon="sync"
-            features={[
-              'Automated daily sales sync — no manual data entry',
-              'AI-powered category and tender mapping',
-              'Multi-location support for growing businesses',
-              'Accountant collaboration portal — invite your bookkeeper',
-            ]}
-            ctaText="Start syncing free"
-            ctaHref="#cta"
-          />
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <!-- Step 1 -->
+          <div class="relative text-center" data-reveal>
+            <div class="w-14 h-14 rounded-2xl bg-accent-500 text-white flex items-center justify-center text-xl font-bold mx-auto">1</div>
+            <h3 class="text-xl font-bold text-neutral-950 mt-6">Connect</h3>
+            <p class="text-base text-neutral-600 leading-relaxed mt-3">
+              Link your Clover POS and QuickBooks Online with secure OAuth. No passwords stored — ever.
+            </p>
+          </div>
 
-          <ProductCard
-            name="VulnSentry"
-            tagline="Automated security for the Ruby ecosystem"
-            description="Monitors Ruby and Rails for gem vulnerabilities, uses LLM-assisted decision making, and creates human-gated security PRs to upstream repositories."
-            badge="For the Ruby Ecosystem"
-            badgeColor="ruby"
-            icon="shield"
-            features={[
-              'Multi-source vulnerability data (GHSA + OSV + ruby-lang)',
-              'LLM-assisted version resolution with fail-closed safety',
-              'Human-gated PR creation — automation with oversight',
-              'Continuous PR synchronization and audit trail',
-            ]}
-            stats="42 vulnerabilities tracked · 10 branches monitored · 20 LLM-assisted decisions"
-            ctaText="Visit vulnsentry.com"
-            ctaHref="https://vulnsentry.com"
-            external
-          />
+          <!-- Step 2 -->
+          <div class="relative text-center" data-reveal>
+            <div class="w-14 h-14 rounded-2xl bg-accent-500 text-white flex items-center justify-center text-xl font-bold mx-auto">2</div>
+            <h3 class="text-xl font-bold text-neutral-950 mt-6">Map</h3>
+            <p class="text-base text-neutral-600 leading-relaxed mt-3">
+              Our AI maps your POS categories and payment types to the right QuickBooks accounts. Review and adjust in seconds.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative text-center" data-reveal>
+            <div class="w-14 h-14 rounded-2xl bg-accent-500 text-white flex items-center justify-center text-xl font-bold mx-auto">3</div>
+            <h3 class="text-xl font-bold text-neutral-950 mt-6">Automate</h3>
+            <p class="text-base text-neutral-600 leading-relaxed mt-3">
+              Sales sync daily, automatically. Check the dashboard anytime — or just forget about it. Your books stay current.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════ Open Source ═══════════════════════════════════ -->
-    <section id="opensource" class="bg-neutral-100 py-16 md:py-24">
+    <!-- ═══════════════════════════════════ Features ═══════════════════════════════════ -->
+    <section id="features" class="bg-neutral-50 py-16 md:py-24">
       <div class="max-w-[1200px] mx-auto px-5 md:px-8">
-        <!-- Section Header -->
         <div class="text-center" data-reveal>
-          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">Open Source</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">Built in the open</h2>
-          <p class="text-lg text-neutral-600 mt-4 max-w-[520px] mx-auto">
-            Ruby gems we created and maintain for the community.
-          </p>
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">Features</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">Everything you need to automate your bookkeeping</h2>
         </div>
 
-        <!-- OSS Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-          <OSSCard
-            name="linear_api"
-            description="Ruby client for the Linear GraphQL API. Issue management, labels, workflow states, and batch operations with a Rails engine."
-            installCmd="linear_api"
-            githubUrl="https://github.com/dan1d/linear-ruby"
-          />
-
-          <OSSCard
-            name="clover_sandbox_simulator"
-            description="Generate realistic POS data for Clover sandbox testing. 9 business types, 168 menu items, multiple payment methods."
-            installCmd="clover_sandbox_simulator"
-            githubUrl="https://github.com/dan1d/clover_sandbox_simulator"
-          />
-
-          <OSSCard
-            name="omniauth-clover-oauth2"
-            description="OmniAuth strategy for Clover POS OAuth2. Supports sandbox and production environments with automatic token refresh."
-            installCmd="omniauth-clover-oauth2"
-            githubUrl="https://github.com/dan1d/omniauth-clover-oauth2"
-          />
-
-          <OSSCard
-            name="omniauth-quickbooks-oauth2-modern"
-            description="Modern OmniAuth 2.0+ strategy for QuickBooks Online. Full scope support with token lifecycle management."
-            installCmd="omniauth-quickbooks-oauth2-modern"
-            githubUrl="https://github.com/dan1d/omniauth-quickbooks-oauth2-modern"
-          />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          {[
+            {
+              title: 'Automatic Daily Sync',
+              description: 'Sales data flows from Clover to QuickBooks every day without lifting a finger. Summary or line-item detail — your choice.',
+              icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
+            },
+            {
+              title: 'AI-Powered Mapping',
+              description: 'Our AI reads your Clover categories and maps them to the right QuickBooks accounts automatically. "Draft Beer" meets "Beverage Sales" without you lifting a finger.',
+              icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+            },
+            {
+              title: 'Multi-Location Support',
+              description: 'Running multiple locations? Sync them all from one dashboard. Each location gets its own mappings and sync schedule.',
+              icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+            },
+            {
+              title: 'Accountant Portal',
+              description: 'Invite your bookkeeper or CPA. They get their own portal to manage multiple clients, review mappings, and monitor syncs.',
+              icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+            },
+            {
+              title: 'Error Prevention',
+              description: 'Built-in validation catches mismatches before they hit your books. No more end-of-month surprises or reconciliation chaos.',
+              icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+            },
+            {
+              title: 'Real-Time Progress',
+              description: 'Watch your sync happen in real time. Detailed logs, status tracking, and instant notifications if anything needs attention.',
+              icon: 'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z',
+            },
+          ].map((feature) => (
+            <div class="bg-white border border-neutral-200 rounded-xl p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:-translate-y-0.5" data-reveal>
+              <div class="w-10 h-10 rounded-lg bg-success-50 flex items-center justify-center">
+                <svg class="w-5 h-5 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={feature.icon}/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-neutral-950 mt-4">{feature.title}</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed mt-2">{feature.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════ Contributions ═══════════════════════════════════ -->
-    <section id="contributions" class="bg-white py-16 md:py-24">
-      <div class="max-w-[1200px] mx-auto px-5 md:px-8">
-        <!-- Section Header -->
-        <div class="text-center" data-reveal>
-          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">Contributing Upstream</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">We improve the tools we use</h2>
-          <p class="text-lg text-neutral-600 mt-4 max-w-[560px] mx-auto">
-            Active contributions to Ruby on Rails core. We don't just build on the framework — we make it better.
-          </p>
-        </div>
-
-        <!-- Contribution Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-          <ContributionCard
-            prNumber={56614}
-            title="Raise UnknownPrimaryKey for writes without primary key"
-            description="Models without a primary key combined with destroy generate invalid SQL. This fix makes them fail earlier with a clear ActiveRecord error instead of cryptic adapter errors."
-            repo="rails/rails"
-            url="https://github.com/rails/rails/pull/56614"
-            status="open"
-          />
-
-          <ContributionCard
-            prNumber={56616}
-            title="Raise UnknownPrimaryKey for destroy_async without PK"
-            description="dependent: :destroy_async with a no-PK model fails with a cryptic TypeError. This adds an early guard raising UnknownPrimaryKey with actionable guidance."
-            repo="rails/rails"
-            url="https://github.com/rails/rails/pull/56616"
-            status="open"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════ About ═══════════════════════════════════ -->
-    <section id="about" class="bg-neutral-50 py-16 md:py-24">
+    <!-- ═══════════════════════════════════ Benefits ═══════════════════════════════════ -->
+    <section class="bg-white py-16 md:py-24">
       <div class="max-w-[1200px] mx-auto px-5 md:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <!-- Text -->
           <div data-reveal>
-            <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">About Us</span>
+            <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">Why Switch</span>
             <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">
-              Built by operators, for operators
+              Reclaim 10+ hours every week
             </h2>
-            <div class="mt-6 space-y-4 text-base text-neutral-600 leading-relaxed">
-              <p>
-                The Owner Stack, LLC is a Delaware limited liability company founded in 2025.
-                We build automation tools for small business owners and open-source
-                infrastructure for the Ruby ecosystem.
-              </p>
-              <p>
-                We believe the best tools come from people who understand the problem firsthand.
-                Every product we ship solves a pain we've experienced — from the tedium of
-                re-entering POS data into accounting software to the challenge of keeping
-                open-source dependencies secure.
-              </p>
-              <p>
-                We build in the open, contribute upstream, and use what we ship.
-                Our business model is simple: charge for the tools that save you time,
-                open-source everything else.
-              </p>
+            <div class="mt-8 space-y-6">
+              {[
+                { title: 'Save 10+ Hours a Week', text: 'Every hour you spend re-entering POS data is an hour you\'re not spending on customers, staff, or strategy.' },
+                { title: 'Accuracy You Can Trust', text: 'Automated sync eliminates transposition errors, missed entries, and end-of-month surprises. Your books match your register.' },
+                { title: 'Built for Accountant Workflows', text: 'Invite your bookkeeper. They get their own portal, manage multiple clients, and handle mappings so you don\'t have to.' },
+                { title: 'Your Data Stays Yours', text: 'OAuth connections only. We never see your passwords. Data encrypted in transit and at rest.' },
+              ].map((benefit) => (
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0 w-8 h-8 rounded-full bg-success-50 flex items-center justify-center mt-0.5">
+                    <svg class="w-4 h-4 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-base font-semibold text-neutral-950">{benefit.title}</h3>
+                    <p class="text-sm text-neutral-600 leading-relaxed mt-1">{benefit.text}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <!-- Visual — tech stack showcase -->
+          <!-- Visual -->
           <div class="relative" data-reveal>
             <div class="bg-gradient-to-br from-primary-800 to-primary-950 rounded-2xl p-8 lg:p-10 aspect-[4/3] flex flex-col justify-center">
-              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-primary-400 mb-6">Our Stack</p>
+              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-primary-400 mb-6">Built For</p>
               <div class="grid grid-cols-2 gap-4">
                 {[
-                  { label: 'Ruby 3.4', sub: 'Language' },
-                  { label: 'Rails 8.1', sub: 'Framework' },
-                  { label: 'PostgreSQL', sub: 'Database' },
-                  { label: 'Hotwire', sub: 'Frontend' },
-                  { label: 'DeepSeek', sub: 'AI/LLM' },
-                  { label: 'Kamal', sub: 'Deployment' },
+                  { label: 'Restaurants', icon: '🍽️' },
+                  { label: 'Cafes', icon: '☕' },
+                  { label: 'Bars', icon: '🍸' },
+                  { label: 'Retail', icon: '🛍️' },
+                  { label: 'Food Trucks', icon: '🚚' },
+                  { label: 'Accountants', icon: '📊' },
                 ].map((item) => (
                   <div class="bg-white/[0.06] border border-white/[0.08] rounded-lg px-4 py-3">
-                    <p class="text-sm font-semibold text-white">{item.label}</p>
-                    <p class="text-xs text-primary-400 mt-0.5">{item.sub}</p>
+                    <p class="text-sm font-semibold text-white"><span class="mr-2">{item.icon}</span>{item.label}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ Pricing ═══════════════════════════════════ -->
+    <section id="pricing" class="bg-neutral-50 py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-5 md:px-8">
+        <div class="text-center" data-reveal>
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">Pricing</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">Simple, transparent pricing</h2>
+          <p class="text-lg text-neutral-600 mt-4">Start free. Upgrade when you grow.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-[800px] mx-auto">
+          <!-- Starter -->
+          <div class="bg-white border border-neutral-200 rounded-2xl p-8 shadow-[var(--shadow-card)]" data-reveal>
+            <h3 class="text-lg font-semibold text-neutral-950">Starter</h3>
+            <p class="text-sm text-neutral-500 mt-1">Everything you need for one location</p>
+            <div class="mt-6">
+              <span class="text-4xl font-bold text-neutral-950">$0</span>
+              <span class="text-neutral-500 text-sm">/month</span>
+            </div>
+            <ul class="mt-8 space-y-3">
+              {['1 location', 'Daily automated sync', 'AI-powered mapping', 'Email support'].map((item) => (
+                <li class="flex items-center gap-3 text-sm text-neutral-700">
+                  <svg class="w-5 h-5 text-success-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#cta"
+              class="mt-8 block text-center px-6 py-3 rounded-xl border-2 border-neutral-200 hover:border-accent-500 text-neutral-700 hover:text-accent-600 font-semibold text-sm transition-all duration-200"
+            >
+              Get Started Free
+            </a>
+          </div>
+
+          <!-- Professional -->
+          <div class="bg-white border-2 border-accent-500 rounded-2xl p-8 shadow-[var(--shadow-card-hover)] relative" data-reveal>
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent-500 text-white text-xs font-semibold rounded-full">
+              Most Popular
+            </div>
+            <h3 class="text-lg font-semibold text-neutral-950">Professional</h3>
+            <p class="text-sm text-neutral-500 mt-1">Unlimited locations, unlimited peace of mind</p>
+            <div class="mt-6">
+              <span class="text-4xl font-bold text-neutral-950">$49</span>
+              <span class="text-neutral-500 text-sm">/month</span>
+            </div>
+            <ul class="mt-8 space-y-3">
+              {['Unlimited locations', 'Real-time sync', 'Priority support', 'Accountant portal', 'Detailed reporting'].map((item) => (
+                <li class="flex items-center gap-3 text-sm text-neutral-700">
+                  <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#cta"
+              class="mt-8 block text-center px-6 py-3 rounded-xl bg-accent-500 hover:bg-accent-600 text-white font-semibold text-sm shadow-[var(--shadow-cta)] hover:shadow-[var(--shadow-cta-hover)] transition-all duration-200"
+            >
+              Start Free Trial
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ Built By Engineers ═══════════════════════════════════ -->
+    <section id="about" class="bg-white py-16 md:py-24">
+      <div class="max-w-[1200px] mx-auto px-5 md:px-8">
+        <div class="text-center" data-reveal>
+          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-accent-500">About Us</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mt-3">Built by engineers who ship</h2>
+          <p class="text-lg text-neutral-600 mt-4 max-w-[640px] mx-auto">
+            The Owner Stack, LLC is a Delaware company founded in 2025. We build our tools
+            in the open and contribute back to the Ruby on Rails ecosystem.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+          {[
+            { stat: '4', label: 'Open source gems published' },
+            { stat: '2', label: 'Rails framework PRs' },
+            { stat: 'Rails 8.1', label: 'Built on the latest stack' },
+            { stat: 'AI-Powered', label: 'Smart category mapping' },
+          ].map((item) => (
+            <div class="text-center p-6 bg-neutral-50 rounded-xl border border-neutral-100" data-reveal>
+              <p class="text-2xl font-bold text-primary-700">{item.stat}</p>
+              <p class="text-xs text-neutral-500 mt-1">{item.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-8" data-reveal>
+          <a
+            href="https://github.com/dan1d"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-sm font-medium text-primary-600 hover:text-accent-600 transition-colors"
+            aria-label="View our work on GitHub (opens in new tab)"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            View our open source work on GitHub
+          </a>
         </div>
       </div>
     </section>
