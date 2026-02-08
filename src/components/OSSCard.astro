@@ -10,7 +10,7 @@ const { name, description, installCmd, githubUrl } = Astro.props;
 ---
 
 <div
-  class="bg-white border border-neutral-200 rounded-xl p-6 shadow-[var(--shadow-oss)] hover:shadow-[var(--shadow-oss-hover)] transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-300"
+  class="bg-white border border-grey-lighter rounded-[12px] p-6 shadow-[var(--shadow-feature)] hover:shadow-[var(--shadow-feature-hover)] transition-all duration-200 hover:-translate-y-0.5 hover:border-grey-light"
   data-reveal
 >
   <!-- Icon -->
@@ -21,13 +21,13 @@ const { name, description, installCmd, githubUrl } = Astro.props;
   </div>
 
   <!-- Gem Name -->
-  <h4 class="font-mono text-sm font-semibold text-neutral-950 mt-4 break-all">{name}</h4>
+  <h4 class="font-mono text-sm font-semibold text-dark mt-4 break-all">{name}</h4>
 
   <!-- Description -->
-  <p class="text-sm text-neutral-600 leading-relaxed mt-2">{description}</p>
+  <p class="text-sm text-grey-dark leading-relaxed mt-2">{description}</p>
 
   <!-- Install Snippet -->
-  <div class="mt-4 px-3 py-2.5 rounded-lg bg-neutral-900 font-mono text-xs text-neutral-300 border border-neutral-800 overflow-x-auto">
+  <div class="mt-4 px-3 py-2.5 rounded-[6px] bg-dark font-mono text-xs text-grey-light border border-grey-darker overflow-x-auto">
     <code>gem '{installCmd}'</code>
   </div>
 

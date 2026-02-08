@@ -1,57 +1,63 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Primary (Navy) ── */
-  --color-primary-50: #eef3fb;
-  --color-primary-100: #dce7f5;
-  --color-primary-200: #b9cfe9;
-  --color-primary-300: #8db1da;
-  --color-primary-400: #5a8ac7;
-  --color-primary-500: #3b6aad;
-  --color-primary-600: #2e528b;
-  --color-primary-700: #243f6e;
-  --color-primary-800: #1a2d52;
-  --color-primary-900: #111d35;
-  --color-primary-950: #0c1220;
+  /* ── Primary (Teal — matches Sync Commerce app) ── */
+  --color-primary-50: #e6faf7;
+  --color-primary-100: #b3f0e8;
+  --color-primary-200: #80e6d9;
+  --color-primary-300: #4ddcca;
+  --color-primary-400: #1ad2bb;
+  --color-primary-500: #00d1b2;
+  --color-primary-600: #00b4a0;
+  --color-primary-700: #009688;
+  --color-primary-800: #007870;
+  --color-primary-900: #005a58;
+  --color-primary-950: #003d3c;
 
-  /* ── Accent (Orange) ── */
-  --color-accent-300: #f5b080;
-  --color-accent-400: #f0914f;
-  --color-accent-500: #e86c2e;
-  --color-accent-600: #d45a1c;
-  --color-accent-700: #b04a16;
+  /* ── Link (Blue) ── */
+  --color-link-500: #3273dc;
+  --color-link-600: #2366d1;
 
-  /* ── Success (Green — Sync Commerce) ── */
-  --color-success-50: #f0fdf4;
-  --color-success-100: #dcfce7;
-  --color-success-500: #22c55e;
-  --color-success-600: #16a34a;
+  /* ── Success (Green) ── */
+  --color-success-50: #e8fbef;
+  --color-success-100: #c5f5d7;
+  --color-success-500: #23d160;
+  --color-success-600: #1db954;
 
-  /* ── Dev (Purple — OSS) ── */
-  --color-dev-50: #f5f3ff;
-  --color-dev-100: #ede9fe;
-  --color-dev-400: #a78bfa;
-  --color-dev-500: #8b5cf6;
-  --color-dev-600: #7c3aed;
+  /* ── Danger (Red) ── */
+  --color-danger-500: #ff3860;
+  --color-danger-600: #e6324f;
 
-  /* ── Ruby (Red — VulnSentry) ── */
-  --color-ruby-50: #fef2f2;
-  --color-ruby-100: #fee2e2;
-  --color-ruby-500: #cc342d;
-  --color-ruby-600: #b91c1c;
+  /* ── Warning (Yellow) ── */
+  --color-warning-500: #ffdd57;
+  --color-warning-600: #ffd633;
 
-  /* ── Fonts ── */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+  /* ── Brand Integration Colors ── */
+  --color-clover: #4CAF50;
+  --color-quickbooks: #2CA01C;
 
-  /* ── Shadows ── */
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-oss: 0 1px 2px rgba(0, 0, 0, 0.03);
-  --shadow-oss-hover: 0 4px 16px rgba(0, 0, 0, 0.06);
-  --shadow-cta: 0 4px 24px rgba(232, 108, 46, 0.35);
-  --shadow-cta-hover: 0 6px 32px rgba(232, 108, 46, 0.5);
-  --shadow-nav: 0 4px 16px rgba(0, 0, 0, 0.12);
+  /* ── Neutrals (matches Bulma) ── */
+  --color-dark: #363636;
+  --color-grey-darker: #4a4a4a;
+  --color-grey-dark: #7a7a7a;
+  --color-grey: #b5b5b5;
+  --color-grey-light: #dbdbdb;
+  --color-grey-lighter: #ededed;
+  --color-white-ter: #f5f5f5;
+  --color-white-bis: #fafafa;
+
+  /* ── Fonts (same as app) ── */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+
+  /* ── Shadows (matching app card shadows) ── */
+  --shadow-card: 0 2px 3px rgba(54, 54, 54, 0.1), 0 0 0 1px rgba(54, 54, 54, 0.05);
+  --shadow-card-hover: 0 4px 6px rgba(54, 54, 54, 0.12), 0 0 0 1px rgba(54, 54, 54, 0.05);
+  --shadow-card-lg: 0 8px 16px rgba(54, 54, 54, 0.1), 0 0 0 1px rgba(54, 54, 54, 0.05);
+  --shadow-feature: 0 2px 8px rgba(54, 54, 54, 0.06);
+  --shadow-feature-hover: 0 12px 32px rgba(54, 54, 54, 0.12);
+  --shadow-nav: 0 2px 3px rgba(54, 54, 54, 0.1);
+  --shadow-hero-card: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* ── Scroll reveal animations ── */
@@ -91,7 +97,7 @@
 
 /* ── Selection color ── */
 ::selection {
-  background-color: var(--color-accent-500);
+  background-color: var(--color-primary-500);
   color: white;
 }
 
@@ -99,4 +105,5 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  color-scheme: light only;
 }
