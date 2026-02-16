@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Primary (Teal — matches Sync Commerce app) ── */
+  /* ── Primary (Teal — matches AutoBooks app) ── */
   --color-primary-50: #e6faf7;
   --color-primary-100: #b3f0e8;
   --color-primary-200: #80e6d9;
