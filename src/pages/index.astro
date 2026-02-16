@@ -169,7 +169,7 @@ import Footer from '../components/Footer.astro';
           <p class="text-lg text-grey-dark mt-4">Start with a 1-month free trial. Upgrade when you're ready.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-[800px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-[1100px] mx-auto">
           <!-- Starter -->
           <div class="bg-white border border-grey-lighter rounded-[16px] p-8 shadow-[var(--shadow-card)]" data-reveal>
             <h3 class="text-lg font-semibold text-dark">Starter</h3>
@@ -220,6 +220,32 @@ import Footer from '../components/Footer.astro';
             <a
               href="https://autobooks.theownerstack.com/users/sign_up"
               class="mt-8 block text-center px-6 py-3 rounded-[6px] bg-primary-500 hover:bg-primary-600 text-white font-medium text-sm transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Start Free Trial
+            </a>
+          </div>
+
+          <!-- Accountant Bundle -->
+          <div class="bg-white border border-grey-lighter rounded-[16px] p-8 shadow-[var(--shadow-card)]" data-reveal>
+            <h3 class="text-lg font-semibold text-dark">Accountant Bundle</h3>
+            <p class="text-sm text-grey-dark mt-1">For bookkeepers &amp; CPAs</p>
+            <div class="mt-6">
+              <span class="text-4xl font-bold text-dark">$60</span>
+              <span class="text-grey-dark text-sm">/month</span>
+            </div>
+            <ul class="mt-8 space-y-3">
+              {['Up to 100 client locations', 'Daily sync to QuickBooks', 'Priority support', 'Unlimited sync history', 'Multi-user access', 'Dedicated accountant portal'].map((item) => (
+                <li class="flex items-center gap-3 text-sm text-grey-darker">
+                  <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="https://autobooks.theownerstack.com/users/sign_up"
+              class="mt-8 block text-center px-6 py-3 rounded-[6px] border-2 border-grey-lighter hover:border-primary-500 text-grey-darker hover:text-primary-600 font-medium text-sm transition-all duration-200"
             >
               Start Free Trial
             </a>
