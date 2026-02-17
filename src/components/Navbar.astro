@@ -3,7 +3,6 @@ const links = [
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Features', href: '#features' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'About', href: '#about' },
 ];
 ---
 
@@ -15,7 +14,7 @@ const links = [
         <rect width="28" height="28" rx="6" fill="currentColor"/>
         <path d="M7 14h14M14 7v14M9 9l10 10M19 9L9 19" stroke="white" stroke-width="2" stroke-linecap="round"/>
       </svg>
-      <span>TheOwnerStack</span>
+      <span>AutoBooks</span>
     </a>
 
     <!-- Desktop Links -->
@@ -26,10 +25,16 @@ const links = [
         </a>
       ))}
       <a
+        href="https://autobooks.theownerstack.com/users/sign_in"
+        class="text-sm font-medium text-grey-darker hover:text-primary-500 transition-colors duration-200"
+      >
+        Sign In
+      </a>
+      <a
         href="https://autobooks.theownerstack.com/users/sign_up"
         class="inline-flex items-center px-5 py-2 rounded bg-primary-500 hover:bg-primary-600 text-white text-sm font-medium transition-all duration-200 hover:-translate-y-0.5"
       >
-        Get Started
+        Get Started Free
       </a>
     </div>
 
@@ -60,10 +65,16 @@ const links = [
       </a>
     ))}
     <a
-      href="https://autobooks.theownerstack.com/users/sign_up"
-      class="mobile-link mt-4 inline-flex items-center px-8 py-4 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-semibold text-base transition-all duration-200"
+      href="https://autobooks.theownerstack.com/users/sign_in"
+      class="mobile-link text-lg font-medium text-grey-darker hover:text-primary-500 transition-colors"
     >
-      Get Started
+      Sign In
+    </a>
+    <a
+      href="https://autobooks.theownerstack.com/users/sign_up"
+      class="mobile-link mt-2 inline-flex items-center px-8 py-4 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-semibold text-base transition-all duration-200"
+    >
+      Get Started Free
     </a>
   </div>
 </nav>

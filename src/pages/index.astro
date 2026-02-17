@@ -47,6 +47,19 @@ import Footer from '../components/Footer.astro';
             </p>
           </div>
         </div>
+
+        <!-- CTA after How It Works -->
+        <div class="text-center mt-12" data-reveal>
+          <a
+            href="https://autobooks.theownerstack.com/users/sign_up"
+            class="inline-flex items-center px-8 py-4 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-semibold text-base transition-all duration-200 hover:-translate-y-0.5"
+          >
+            Start Your Free Setup
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -112,11 +125,11 @@ import Footer from '../components/Footer.astro';
           <div data-reveal>
             <span class="text-xs font-semibold uppercase tracking-[0.15em] text-primary-500">Why Switch</span>
             <h2 class="text-3xl md:text-4xl font-bold text-dark mt-3">
-              Reclaim 10+ hours every week
+              What changes when you stop typing numbers
             </h2>
             <div class="mt-8 space-y-6">
               {[
-                { title: 'Save 10+ Hours a Week', text: 'Every hour you spend re-entering POS data is an hour you\'re not spending on customers, staff, or strategy.' },
+                { title: 'Eliminate Manual Data Entry', text: 'Your Clover sales flow into QuickBooks every morning before you open the door. No spreadsheets, no re-keying, no weekend catch-up sessions.' },
                 { title: 'Accuracy You Can Trust', text: 'Automated sync eliminates transposition errors, missed entries, and end-of-month surprises. Your books match your register.' },
                 { title: 'Built for Accountant Workflows', text: 'Invite your bookkeeper. They get their own portal, manage multiple clients, and handle mappings so you don\'t have to.' },
                 { title: 'Your Data Stays Yours', text: 'OAuth connections only. We never see your passwords. Data encrypted in transit and at rest.' },
@@ -136,23 +149,33 @@ import Footer from '../components/Footer.astro';
             </div>
           </div>
 
-          <!-- Visual -->
+          <!-- What syncs -->
           <div class="relative" data-reveal>
-            <div class="rounded-[16px] p-8 lg:p-10 aspect-[4/3] flex flex-col justify-center" style="background: linear-gradient(135deg, #00b4a0 0%, #009688 50%, #007870 100%);">
-              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-white/70 mb-6">Built For</p>
-              <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-[16px] p-8 lg:p-10 bg-white border border-grey-lighter shadow-[var(--shadow-card)]">
+              <p class="text-xs font-semibold uppercase tracking-[0.15em] text-primary-500 mb-6">What AutoBooks syncs daily</p>
+              <div class="space-y-4">
                 {[
-                  { label: 'Restaurants', icon: '🍽️' },
-                  { label: 'Cafes', icon: '☕' },
-                  { label: 'Bars', icon: '🍸' },
-                  { label: 'Retail', icon: '🛍️' },
-                  { label: 'Food Trucks', icon: '🚚' },
-                  { label: 'Accountants', icon: '📊' },
+                  { label: 'Sales by category', detail: 'Appetizers, Drinks, Entrees — each mapped to the right QuickBooks account' },
+                  { label: 'Payment tenders', detail: 'Cash, credit card, gift card — each to its own clearing account' },
+                  { label: 'Tips collected', detail: 'Tracked separately as a current liability' },
+                  { label: 'Taxes collected', detail: 'Sales tax, VAT, GST — handled per region' },
+                  { label: 'Discounts & refunds', detail: 'Contra-revenue entries that keep your books accurate' },
                 ].map((item) => (
-                  <div class="bg-white/[0.06] border border-white/[0.08] rounded-lg px-4 py-3">
-                    <p class="text-sm font-semibold text-white"><span class="mr-2">{item.icon}</span>{item.label}</p>
+                  <div class="flex gap-3">
+                    <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-50 flex items-center justify-center mt-0.5">
+                      <svg class="w-3.5 h-3.5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-sm font-semibold text-dark">{item.label}</p>
+                      <p class="text-xs text-grey-dark mt-0.5">{item.detail}</p>
+                    </div>
                   </div>
                 ))}
+              </div>
+              <div class="mt-6 pt-4 border-t border-grey-lighter text-center">
+                <p class="text-xs text-grey-dark">Intuit Approved Integration</p>
               </div>
             </div>
           </div>
@@ -192,17 +215,17 @@ import Footer from '../components/Footer.astro';
               href="https://autobooks.theownerstack.com/users/sign_up"
               class="mt-8 block text-center px-6 py-3 rounded-[6px] border-2 border-grey-lighter hover:border-primary-500 text-grey-darker hover:text-primary-600 font-medium text-sm transition-all duration-200"
             >
-              Start Free Trial
+              Try Starter Free
             </a>
           </div>
 
           <!-- Growth -->
           <div class="bg-white border-2 border-primary-500 rounded-[16px] p-8 shadow-[var(--shadow-card-hover)] relative" data-reveal>
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary-500 text-white text-xs font-semibold rounded-full">
-              Most Popular
+              Recommended
             </div>
             <h3 class="text-lg font-semibold text-dark">Growth</h3>
-            <p class="text-sm text-grey-dark mt-1">For growing businesses</p>
+            <p class="text-sm text-grey-dark mt-1">For multi-location businesses</p>
             <div class="mt-6">
               <span class="text-4xl font-bold text-dark">$25</span>
               <span class="text-grey-dark text-sm">/month</span>
@@ -221,7 +244,7 @@ import Footer from '../components/Footer.astro';
               href="https://autobooks.theownerstack.com/users/sign_up"
               class="mt-8 block text-center px-6 py-3 rounded-[6px] bg-primary-500 hover:bg-primary-600 text-white font-medium text-sm transition-all duration-200 hover:-translate-y-0.5"
             >
-              Start Free Trial
+              Try Growth Free
             </a>
           </div>
 
@@ -247,55 +270,19 @@ import Footer from '../components/Footer.astro';
               href="https://autobooks.theownerstack.com/users/sign_up"
               class="mt-8 block text-center px-6 py-3 rounded-[6px] border-2 border-grey-lighter hover:border-primary-500 text-grey-darker hover:text-primary-600 font-medium text-sm transition-all duration-200"
             >
-              Start Free Trial
+              Try Accountant Bundle Free
             </a>
           </div>
         </div>
+
+        <p class="text-sm text-grey-dark text-center mt-8" data-reveal>
+          All plans include a 30-day free trial. Cancel anytime. No contracts.
+        </p>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════ Built By Engineers ═══════════════════════════════════ -->
-    <section id="about" class="bg-white py-16 md:py-24">
-      <div class="max-w-[1200px] mx-auto px-5 md:px-8">
-        <div class="text-center" data-reveal>
-          <span class="text-xs font-semibold uppercase tracking-[0.15em] text-primary-500">About Us</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-dark mt-3">Built by engineers who ship</h2>
-          <p class="text-lg text-grey-dark mt-4 max-w-[640px] mx-auto">
-            The Owner Stack, LLC is a Delaware company founded in 2025. We build our tools
-            in the open and contribute back to the Ruby on Rails ecosystem.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-          {[
-            { stat: '4', label: 'Open source gems published' },
-            { stat: '2', label: 'Rails framework PRs' },
-            { stat: 'Rails 8.1', label: 'Built on the latest stack' },
-            { stat: '100%', label: 'Automated daily sync' },
-          ].map((item) => (
-            <div class="text-center p-6 bg-white-ter rounded-[6px] border border-grey-lighter" data-reveal>
-              <p class="text-2xl font-bold text-primary-700">{item.stat}</p>
-              <p class="text-xs text-grey-dark mt-1">{item.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div class="text-center mt-8" data-reveal>
-          <a
-            href="https://github.com/dan1d"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-sm font-medium text-primary-600 hover:text-primary-800 transition-colors"
-            aria-label="View our work on GitHub (opens in new tab)"
-          >
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-            </svg>
-            View our open source work on GitHub
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- "Built by Engineers" section removed — moved to /about page.
+         Restaurant owners don't need to see gem counts and Rails PRs. -->
   </main>
 
   <Footer />

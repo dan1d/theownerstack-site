@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = 'TheOwnerStack | Commerce Automation & Ruby Ecosystem Tools',
-  description = 'TheOwnerStack builds automation tools for small businesses and open-source infrastructure for the Ruby ecosystem. AutoBooks, VulnSentry, and community gems.',
+  title = 'AutoBooks — Sync Clover POS to QuickBooks Online Automatically',
+  description = 'Automatically sync your Clover POS daily sales to QuickBooks Online. Smart category mapping, multi-location support, and an accountant portal. Free 30-day trial.',
 } = Astro.props;
 
 const siteUrl = 'https://theownerstack.com';
@@ -27,7 +27,7 @@ const siteUrl = 'https://theownerstack.com';
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="clover quickbooks sync, pos accounting integration, ruby rails tools, open source, vuln sentry, commerce automation" />
+    <meta name="keywords" content="clover quickbooks integration, clover pos quickbooks online sync, automate restaurant bookkeeping, pos accounting software, clover daily sales sync, clover bookkeeping automation" />
     <link rel="canonical" href={siteUrl} />
 
     <!-- Open Graph -->
@@ -35,14 +35,19 @@ const siteUrl = 'https://theownerstack.com';
     <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="TheOwnerStack" />
+    <meta property="og:site_name" content="AutoBooks by TheOwnerStack" />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="AutoBooks — Sync Clover POS to QuickBooks Online Automatically" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD: Organization -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -61,14 +66,25 @@ const siteUrl = 'https://theownerstack.com';
       },
       "sameAs": [
         "https://github.com/dan1d"
-      ],
-      "knowsAbout": [
-        "Ruby on Rails",
-        "Point of Sale Integration",
-        "QuickBooks Online",
-        "Open Source Software",
-        "Vulnerability Detection"
       ]
+    })} />
+
+    <!-- JSON-LD: SoftwareApplication -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AutoBooks",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Automatically sync Clover POS daily sales to QuickBooks Online with smart category mapping.",
+      "url": "https://autobooks.theownerstack.com",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "15.00",
+        "highPrice": "60.00",
+        "priceCurrency": "USD",
+        "offerCount": "3"
+      }
     })} />
   </head>
   <body class="bg-white text-dark">
