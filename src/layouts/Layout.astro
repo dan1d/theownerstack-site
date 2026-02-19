@@ -15,6 +15,8 @@ const {
 } = Astro.props;
 
 const siteUrl = 'https://theownerstack.com';
+const chatwootBaseUrl = import.meta.env.PUBLIC_CHATWOOT_BASE_URL || 'https://support.autobooks.theownerstack.com';
+const chatwootToken = import.meta.env.PUBLIC_CHATWOOT_WEBSITE_TOKEN || 'C25bEy2JGgxjpeMDCPw9Waw3';
 ---
 
 <!doctype html>
@@ -103,6 +105,28 @@ const siteUrl = 'https://theownerstack.com';
         { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    </script>
+
+    <!-- Chatwoot Support Widget -->
+    <script define:vars={{ chatwootBaseUrl, chatwootToken }}>
+      (function(d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = chatwootBaseUrl + "/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function() {
+          window.chatwootSettings = {
+            position: "right",
+            type: "standard",
+            launcherTitle: "Need help?"
+          };
+          window.chatwootSDK.run({
+            websiteToken: chatwootToken,
+            baseUrl: chatwootBaseUrl
+          });
+        };
+      })(document, "script");
     </script>
   </body>
 </html>
